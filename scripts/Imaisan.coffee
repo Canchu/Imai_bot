@@ -5,3 +5,6 @@ module.exports = (robot) ->
 
 	robot.hear /Timaiさん$/i, (msg) ->
 		msg.send "はーい、Timaiだよ"
+
+	robot.hear /.*渋谷駅.*/, (msg) ->
+		msg.send "いつも当駅をご利用いただき誠にありがとうございます"
