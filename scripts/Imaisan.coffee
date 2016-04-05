@@ -3,8 +3,10 @@
 cron = require('cron').CronJob
 
 module.exports = (robot) ->
-	new cron '* * * * * *', () =>
-    	robot.send {room:"#bot_test"}, "ねえねえ吉田くん吉田くん", null, true, "Asia/Tokyo"
+	cron = new cron('* 46 * * * *', () =>
+    	robot.send {room: "bot_test"}, "ねえねえ吉田くん吉田くん　暇だよねえ？"
+    )
+    cron.start()
 
 	robot.hear /今井さん$/i, (msg) ->
 		msg.send "はい、今井です"
