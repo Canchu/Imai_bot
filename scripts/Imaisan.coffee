@@ -3,7 +3,7 @@
 cron = require('cron').CronJob
 
 module.exports = (robot) ->
-	cron = new cron('00 50 * * * *', () =>
+	cron = new cron('00 52 * * * *', () =>
     	robot.send {room: "bot_test"}, "ねえねえ吉田くん吉田くん　暇だよねえ？"
     )
     cron.start()
