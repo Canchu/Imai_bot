@@ -1,6 +1,8 @@
 # scripts/Imaisan.coffee
 
 cron = require('cron').CronJob
+input_txt = ""
+output_txt = ""
 
 module.exports = (robot) ->
 	cron = new cron('00 00 10-19 * * *', () =>
@@ -16,6 +18,10 @@ module.exports = (robot) ->
 
 	robot.hear /.*渋谷駅.*/, (msg) ->
 		msg.send "いつも当駅をご利用いただき誠にありがとうございます"
+
+	if input_txt != "" && output_txt != ""
+		robot.hear input_txt, (msg) ->
+			msg.send output_txt
 
 	robot.hear /@imai input:.* output:.*/,(msg)->
 		text = msg.match[0]
