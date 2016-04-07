@@ -25,12 +25,9 @@ module.exports = (robot) ->
 
 
 	robot.hear user_input, (msg) ->
-	    match_message = msg.message.text.match user_input
-	
-		if match_message[0] != null
-			output = robot.brain.get(match_message[0])
-			msg.send output
-
+		match_message = msg.message.text.match user_input
+		output = robot.brain.get(match_message[0])
+		msg.send output if output != null
 	 	
 	robot.hear /@imai input:.* output:.*/,(msg)->
 		cnt = robot.brain.get('count')
