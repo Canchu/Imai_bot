@@ -6,8 +6,8 @@ user_input = new RegExp();
 module.exports = (robot) ->
 	robot.brain.set('count', 0)
 
-	cron = new cron('00 00 10-19 * * *', () =>
-    	robot.send {room: "bot_test"}, "@yoshida ねえねえ吉田くん吉田くん　暇だよねえ？"
+	cron = new cron('00 00 10-19 * * 1-5', () =>
+    	robot.send {room: "bot_test"}, "ねえねえ吉田くん吉田くん　暇だよねえ？"
     )
     cron.start()
 
